@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Jesús Castro">
+    
+    <link rel="shortcut icon" href="https://jcstr.github.io/favicon.ico">
+    
+    <link rel="stylesheet" href="/css/style.min.css">
+
+    <title>Así instalo Arch Linux</title>
+</head>
+<body><header id="banner">
+    <h2><a href="https://jcstr.github.io/">Jesús Castro</a></h2>
+    <nav>
+        <ul>
+            <li>
+                <a href="/" title="posts">posts</a>
+            </li><li>
+                <a href="/about/" title="about">about</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main id="content">
+<article>
+    <header id="post-header">
+        <h1>Así instalo Arch Linux</h1><time>October 27, 2020</time></header><p>Te doy la bienvenida a mi primer post! el cual dedicare a la comunidad mexicana de <a href="https://t.me/archlinuxmx">Arch Linux</a>.</p>
+<p>Uno de los principales obstáculos que se encuentran en algunas comunidades de Software Libre y de Código Abierto, particularmente en México, es el no tener el dominio del idioma inglés, pero no hay ningún problema, para ello decidí escribir esta guía al español para poder ayudar a quienes tienen el interés de instalar <strong>Arch Linux</strong> y así poder usar el mismo día.</p>
+<h2 id="para-quién-está-dirigida-está-guía">¿Para quién está dirigida está guía?</h2>
+<ul>
+<li>Para aquellos que <del>son expertos</del> tienen la actitud de hacer las cosas por sí mismos.</li>
+<li>Está guía contiene todos los pasos enfocados para una instalación directa en la máquina.</li>
+</ul>
+<h2 id="qué-obtendré-al-finalizar-esta-guía">¿Qué obtendré al finalizar esta guía?</h2>
+<ul>
+<li>Una instalación de Arch Linux <em>cifrada</em> bajo el esquema <a href="https://wiki.archlinux.org/index.php/Dm-crypt_(Espa%C3%B1ol)/Encrypting_an_entire_system_(Espa%C3%B1ol)#LVM_sobre_LUKS">LVM-LUKS</a> (Osea, un sistema Linux con el disco cifrado {&hellip; para más seguridad 🔒}).</li>
+</ul>
+<p>⚡<strong>Consejo</strong>: Antes de instalar Arch Linux en tu máquina recomiendo que aprendas a familiarizarte con Arch desde una máquina virtual, ya sea con <a href="https://picodotdev.github.io/blog-bitix/2014/11/como-instalar-y-guia-de-inicio-basica-de-docker/">Docker</a> o <a href="https://fortinux.gitbooks.io/humble_tips/content/capitulo_1_usando_aplicaciones_en_linux/tutorial_instalar_vagrant_para_usar_ambientes_virtuales_en_gnulinux.html">Vagrant</a>.</p>
+<h2 id="preliminares-">Preliminares 🏁</h2>
+<p>Antes que nada, para poder instalar Arch Linux, necesitamos iniciar la imagen <code>.iso</code> desde una USB en la máquina que se desea instalar y para efectos prácticos, yo asumo que ya se tiene lista la USB cargada con la imagen de Arch Linux, además de que hay diferentes maneras de poder cargar la imagen de Arch en la USB yo sugiero <a href="https://wiki.archlinux.org/index.php/USB_flash_installation_medium_(Espa%C3%B1ol)">leer esta página de la wiki</a> para conocer más respecto a este tema.</p>
+<h2 id="configurando-el-teclado-del-instalador-">Configurando el teclado del instalador 💿</h2>
+<p>Una vez que el instalador inició es momento de configurar el teclado acorde al idioma/región que tenemos en nuestro teclado, para ello yo asumo la configuración para <code>la-latin</code> (Español Latinoamericano):</p>
+<pre><code># loadkeys la-latin1
+</code></pre><p>Recomiendo <a href="">leer esta página de la wiki</a> para ahondar más en la configuración del teclado.</p>
+<h2 id="conectandose-a-internet-">Conectandose a Internet 🌎</h2>
+<p>Para conectarnos a Inernet desde el instalador  , necesitamos ejectuar una serie de comandos con <code>iwctl</code>:</p>
+<p>Con este comando conocemos los dispositivos Wi-Fi que podemos usar para conectarnos:</p>
+<pre><code># iwctl device list
+</code></pre><p>Ahora, procedemos a buscar redes con el dispositivo WiFi especificado:</p>
+<pre><code># iwctl station DEVICE scan
+</code></pre><p>Listamos todas las redes disponibles:</p>
+<pre><code># iwctl station DEVICE get-networks
+</code></pre><p>Finalmente para conectarnos a una red en específico ejecutamos:</p>
+<pre><code># iwctl --passphrase=PASSPHRASE station DEVICE connect SSID
+</code></pre><p>Para verificar que nos hemos conectado efectivamente hacemos ping:</p>
+<pre><code># ping archlinux.org
+</code></pre><p>Listo! ya podemos continuar con la guía de instalación para poder instalar todo lo necesario.</p>
+<h2 id="verificar-el-modo-de-arranque-boot">Verificar el modo de arranque (boot)</h2>
+<p>Para este caso en particular yo asumo el modo <a href="https://wiki.archlinux.org/index.php/Unified_Extensible_Firmware_Interface_(Espa%C3%B1ol)">UEFI</a> y para verificar que la máquina tiene dicho modo, con este comando verifico la existencia de todas las variables que integran el firmware:</p>
+<pre><code># ls /sys/firmware/efi/efivars
+</code></pre><p>⚡<strong>Consejo</strong>: Si la salida del comando no muestra nada, entonces tu máquina no tiene el modo UEFI, por lo que sugiero <a href="https://wiki.archlinux.org/index.php/Arch_boot_process_(Espa%C3%B1ol)">leer esta página de la wiki</a>.</p>
+<h2 id="verificando-las-propiedades-del-disco">Verificando las propiedades del disco</h2>
+<p>Para conocer el disco y sus respectivas particiones ejecutamos:</p>
+<pre><code># fdisk -l
+</code></pre><p>Una vez que tenemos el conocimiento sobre nuestro disco, procedemos a darle formato a las particiones necesarias.</p>
+<h2 id="preparando-la-particion-de-arranque-boot">Preparando la particion de arranque (boot)</h2>
+<p>Para darle formato a la partición de arranque utilizaremos <code>gdisk</code>:</p>
+<pre><code># gdisk /dev/sda
+o
+y
+n
+enter
++512MIB
+ef00
+
+n
+enter
+8e00
+w
+y
+</code></pre><h2 id="dandole-formato-a-la-partición-boot">Dandole formato a la partición boot</h2>
+<p>Para este caso en particular es necesario darle formato a la partición boot con el sistema de archivos FAT32 el cual es un requisito para poder instalar systemd-boot:</p>
+<pre><code># mkfs.fat -F32 /dev/sda1
+</code></pre><p>Y con esto ya tenemos lista la partición de arranque, ahora, procedemos a preparar las demás particiones y configurar el esquema LVM-LUKS.</p>
+<h2 id="cifrando-arch-en-nuestra-máquina-">Cifrando Arch en nuestra máquina 🔒</h2>
+<h2 id="lvm-lukshttpswikiarchlinuxorgindexphpdm-cryptencrypting_an_entire_systemlvm_on_luks"><a href="https://wiki.archlinux.org/index.php/Dm-crypt/Encrypting_an_entire_system#LVM_on_LUKS">LVM-LUKS</a></h2>
+<h2 id="encryption-configuration-cryptsetuphttpswikiarchlinuxorgindexphpdm-cryptdevice_encryptioncryptsetup_usage">Encryption configuration (<a href="https://wiki.archlinux.org/index.php/Dm-crypt/Device_encryption#Cryptsetup_usage">cryptsetup</a>)</h2>
+<pre><code># cryptsetup luksFormat /dev/sda2
+</code></pre><h2 id="open-the-encrypted-partition-and-create-group-and-volumes-root-hoome-swap">Open the encrypted partition and create group and volumes (root, hoome, swap)</h2>
+<h3 id="unlock-the-partition">Unlock the partition</h3>
+<pre><code># cryptsetup open --type luks /dev/sda2 lvm 
+</code></pre><h3 id="create-respective-groups">Create respective groups</h3>
+<pre><code># pvcreate /dev/mapper/lvm
+</code></pre><pre><code># vgcreate volume /dev/mapper/lvm
+</code></pre><pre><code># lvcreate -L2G volume -n swap
+</code></pre><pre><code># lvcreate -L50G volume -n root
+</code></pre><pre><code># lvcreate -l 100%FREE volume -n home
+</code></pre><h2 id="formating-partitions">Formating partitions</h2>
+<h3 id="root">root</h3>
+<pre><code># mkfs.ext4 /dev/mapper/volume-root
+</code></pre><h3 id="home">home</h3>
+<pre><code># mkfs.ext4 /dev/mapper/volume-home
+</code></pre><h3 id="swap">swap</h3>
+<pre><code># mkswap /dev/mapper/volume-swap 
+</code></pre><h3 id="create-boot-and-home-directories-under-mnt">Create boot and home directories under /mnt</h3>
+<pre><code># mkdir /mnt/home
+# mkdir /mnt/boot
+</code></pre><h3 id="mount-partitions">Mount partitions</h3>
+<pre><code># mount /dev/mapper/volume-root /mnt
+# mount /dev/sda1 /mnt/boot
+# mount /dev/mapper/volume-home /mnt/home
+</code></pre><h3 id="activate-swap">Activate swap</h3>
+<pre><code># swapon /dev/mapper/volume-swap
+</code></pre><hr>
+<h2 id="corehttpswikiarchlinuxorgindexphpinstallation_guideinstall_essential_packages-installation"><a href="https://wiki.archlinux.org/index.php/Installation_guide#Install_essential_packages">Core</a> installation</h2>
+<pre><code># pacstrap /mnt base base-devel linux linux-firmware vim networkmanager mkinitcpio lvm2 cryptsetup
+</code></pre><h2 id="generate-fstabhttpswikiarchlinuxorgindexphpfstab">Generate <a href="https://wiki.archlinux.org/index.php/Fstab">fstab</a></h2>
+<pre><code># genfstab -U /mnt &gt;&gt; /mnt/etc/fstab
+</code></pre><h2 id="change-root-into-the-new-system">Change root into the new system</h2>
+<pre><code># arch-chroot /mnt
+</code></pre><h2 id="local-time-settings">Local Time settings</h2>
+<pre><code># ln -s /usr/share/zoneinfo/America/Mexico_city /etc/localtime
+# hwclock --systohc --utc
+</code></pre><h2 id="localization">Localization</h2>
+<pre><code># vim /etc/locale.gen
+
+es_MX.UTF-8 UTF-8
+</code></pre><h3 id="generate-locale">Generate Locale</h3>
+<pre><code># locale-gen 
+</code></pre><h3 id="save-to-config-file">Save to config file</h3>
+<pre><code># locale &gt; /etc/locale.conf
+</code></pre><h2 id="network-configuration">Network configuration</h2>
+<h3 id="hostname">Hostname</h3>
+<pre><code># vim /etc/hostname
+</code></pre><h3 id="add-entries-to-hosts">Add entries to hosts</h3>
+<pre><code># vim /etc/hosts
+127.0.0.1	  localhost
+::1		      localhost
+127.0.1.1	  myhostname.localdomain	  myhostname
+</code></pre><h3 id="_read-carefuly_-the-hooks-named-and-its-order-specially-for-this-encrypted-system"><em>Read carefuly</em> the HOOKS named and its order, specially for this encrypted system</h3>
+<pre><code># vim /etc/mkinitcpio.conf 
+
+HOOKS=(base udev autodetect modconf block keyboard encrypt lvm2 filesystems fsck)
+</code></pre><h3 id="recreate-initramfshttpswikiarchlinuxorgindexphpinstallation_guideinitramfs">Recreate <a href="https://wiki.archlinux.org/index.php/Installation_guide#Initramfs">initramfs</a></h3>
+<pre><code># mkinitcpio -P
+</code></pre><h2 id="establish-root-password">Establish root password</h2>
+<pre><code># passwd 
+</code></pre><h2 id="install-bootloader">Install bootloader</h2>
+<pre><code>bootctl --path=/boot install
+</code></pre><h2 id="configure-boot-loaders">Configure boot loaders</h2>
+<pre><code># vim /boot/loader/loader.conf
+
+default arch 
+timeout 3 
+editor 0
+</code></pre><pre><code># vim /boot/loader/entries/arch.conf
+
+title Arch Linux
+linux /vmlinuz-linux
+initrd /initramfs-linux.img
+options cryptdevice=UUID=86a872ee-b133-4e13-8283-d99024361d79:volume root=/dev/mapper/volume-root quiet rw
+</code></pre><h3 id="obtain-the-cryptdevice-uuid-under-vim-with">Obtain the cryptdevice UUID under vim with:</h3>
+<pre><code>:read ! blkid /dev/sda2 
+</code></pre><h2 id="logout-from-arch-chroot-umount-partitions-and-reboot">Logout from arch-chroot, umount partitions and reboot</h2>
+<p><code>Ctrl+D</code></p>
+<pre><code># umount -R /mnt 
+# reboot
+</code></pre><hr>
+<h2 id="personalización">Personalización</h2>
+<p>Ahora procedemos a personalizar nuestra instalación de Arch.</p>
+<p>Primero iniciamos sesión como root y agregamos nuestra cuenta de usario:</p>
+<pre><code># useradd -m -G $tu_nombre_de_usuario 
+# passwd $tu_nombre_de_usuario
+</code></pre><p>Ahora, instalamos sudo:</p>
+<pre><code># sudo pacman -S sudo
+</code></pre><p>Activamos sudo para los usuarios:</p>
+<h2 id="activate-sudo-for-users">Activate sudo for users</h2>
+<pre><code># vim /etc/sudoers
+%wheel ALL=(ALL) ALL
+</code></pre><p>Y listo! ya con esto ya podemos iniciar sesión como usario</p>
+<h2 id="configurando-pacman">Configurando Pacman</h2>
+<p>para configurar Pacman es necesario editar el archivo que se encuentra en <code>/etc/pacman.conf</code>.
+Agregamos este huevo de pascua que tiene pacman! cuando uses pacman vas a notar de que se trata</p>
+<pre><code># vim /etc/pacman.conf
+
+ILoveCandy
+</code></pre><h2 id="update-system-and-reboot">Update system and reboot</h2>
+<pre><code># sudo pacman -Syu &amp;&amp; reboot
+</code></pre><h2 id="iniciando-sesión-como-usario-regular">Iniciando sesión como usario regular</h2>
+<pre><code>$ sudo pacman-key init
+</code></pre><p>Y finalmente tienes Arch Linux instalado en tu máquina!
+Ahora solo queda personalizarlo exactamente como te gustaría usarlo, podria ser instalar un entorno gráfico, un administrador de ventanas o incluso usarlo así como está.</p>
+<hr>
+<h2 id="comentarios">¿Comentarios?</h2>
+<p>Escríbeme un <a href="https://twitter.com/51v4n">tweet</a>!</p>
+</article>
+
+        </main><footer id="footer">
+    Copyright © 2020 Jesús Castro - CC BY-NC 4.0
+</footer>
+</body>
+</html>
