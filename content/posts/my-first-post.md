@@ -4,16 +4,18 @@ date: 2020-10-27T21:31:37-06:00
 draft: true
 ---
 
-Te doy la bienvenida a mi primer post! el cual dedicare a la comunidad mexicana de [Arch Linux](https://t.me/archlinuxmx).
+Te doy la bienvenida a mi primer post! el cual dedicare a la [comunidad Mexicana de Arch Linux](https://t.me/archlinuxmx).
 
-Uno de los principales obstáculos que se encuentran en algunas comunidades de Software Libre y de Código Abierto, particularmente en México, es el no tener el dominio del idioma inglés, pero no hay ningún problema, para ello decidí escribir esta guía al español para poder ayudar a quienes tienen el interés de instalar **Arch Linux** y así poder usar el mismo día.
+Uno de los principales obstáculos que se encuentran en algunas comunidades de Software Libre y de Código Abierto, particularmente en México, es el no tener el dominio del idioma inglés, pero no hay ningún problema, para ello decidí escribir esta guía al español para poder ayudar a quienes tienen el interés de instalar **[Arch Linux](https://archlinux.org)** y así poder usar el mismo día.
 
 ## ¿Para quién está dirigida está guía?
 * Para aquellos que ~~son expertos~~ tienen la actitud de hacer las cosas por sí mismos.
 * Está guía contiene todos los pasos enfocados para una instalación directa en la máquina.
 
 ## ¿Qué obtendré al finalizar esta guía?
-* Una instalación de Arch Linux _cifrada_ bajo el esquema [LVM-LUKS](https://wiki.archlinux.org/index.php/Dm-crypt_(Espa%C3%B1ol)/Encrypting_an_entire_system_(Espa%C3%B1ol)#LVM_sobre_LUKS) (Osea, un sistema Linux con el disco cifrado {... para más seguridad :lock:}).
+* Una instalación de Arch Linux _cifrada_ bajo el esquema [LVM-LUKS](https://wiki.archlinux.org/index.php/Dm-crypt_(Espa%C3%B1ol)/Encrypting_an_entire_system_(Espa%C3%B1ol)#LVM_sobre_LUKS).
+
+(Osea, un sistema Linux con el disco cifrado {... para más seguridad :lock:}).
 
 :zap:**Consejo**: Antes de instalar Arch Linux en tu máquina recomiendo que aprendas a familiarizarte con Arch desde una máquina virtual, ya sea con [Docker](https://picodotdev.github.io/blog-bitix/2014/11/como-instalar-y-guia-de-inicio-basica-de-docker/) o [Vagrant](https://fortinux.gitbooks.io/humble_tips/content/capitulo_1_usando_aplicaciones_en_linux/tutorial_instalar_vagrant_para_usar_ambientes_virtuales_en_gnulinux.html).
 
@@ -73,23 +75,32 @@ Para conocer el disco y sus respectivas particiones ejecutamos:
 Una vez que tenemos el conocimiento sobre nuestro disco, procedemos a darle formato a las particiones necesarias.
 
 ## Preparando la particion de arranque (boot)
-Para darle formato a la partición de arranque utilizaremos `gdisk`:
+Para crear la partición de arranque (`/dev/sda1/`) utilizaremos `gdisk`:
 
 ```
 # gdisk /dev/sda
-o
-y
-n
-enter
-+512MIB
-ef00
-
-n
-enter
-8e00
-w
-y
 ```
+Pulsamos la tecla: `o`
+
+Pulsamos la tecla: `y`
+
+Puslamos la tecla: `n`
+
+Pulsamos la tecla: `Enter`
+
+Definimos el tamaño de la partición: `+512MIB`
+
+Definimos la partición para [EFI](https://wiki.archlinux.org/index.php/EFI_system_partition_(Espa%C3%B1ol)): `ef00`
+
+Pulsamos la tecla: `n`
+
+Pulsamos la tecla: `enter`
+
+Definimos el tipo de partición [LVM](https://wiki.archlinux.org/index.php/GPT_fdisk): `8e00`
+
+Escribimos los cambios: `w`
+
+Confirmamos: `y`
 
 ## Dandole formato a la partición boot
 Para este caso en particular es necesario darle formato a la partición boot con el sistema de archivos FAT32 el cual es un requisito para poder instalar systemd-boot:
@@ -99,46 +110,82 @@ Para este caso en particular es necesario darle formato a la partición boot con
 Y con esto ya tenemos lista la partición de arranque, ahora, procedemos a preparar las demás particiones y configurar el esquema LVM-LUKS.
 
 ## Cifrando Arch en nuestra máquina :lock:
+A partir de aquí vamos a configurar `/dev/sda2` para usar el esquema LVM-LUKS.
 
-## [LVM-LUKS](https://wiki.archlinux.org/index.php/Dm-crypt/Encrypting_an_entire_system#LVM_on_LUKS)
+Y antes de empezar conviene comprender, y bien, ¿por qué usar el esquema `LVM-LUKS`?
 
-## Encryption configuration ([cryptsetup](https://wiki.archlinux.org/index.php/Dm-crypt/Device_encryption#Cryptsetup_usage))
+En palabras simples, LVM (Logical Volume Manager) nos ayuda a crear particiones virtuales mientras que LUKS (Linux Unified Key Setup) nos ayuda a cifrar la particion.
+
+Así quedaría todo el disco una vez instalado Arch:
+```
++-----------------------------------------------------------------------+ +----------------+
+| Volumen lógico 1      | Volumen lógico 2      | Volumen lógico 3      | | Boot partition |
+|                       |                       |                       | |                |
+| [SWAP]                | /                     | /home                 | | /boot          |
+|                       |                       |                       | |                |
+| /dev/MyVolGroup/swap  | /dev/MyVolGroup/root  | /dev/MyVolGroup/home  | |                |
+|_ _ _ _ _ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _| |                |
+|                                                                       | |                |
+|                         LUKS2 encrypted partition                     | |                |
+|                           /dev/sda2                                   | | /dev/sda1      |
++-----------------------------------------------------------------------+ +----------------+
+```
+(diagrama tomado de la [wiki](https://wiki.archlinux.org/index.php/Dm-crypt/Encrypting_an_entire_system#LVM_on_LUKS)).
+
+Ahora si, continuamos con la guía.
+
+## Configurando el cifrado con (cryptsetup)
+Para poder cifrar la partición `/dev/sda2` necesitamos usar `cryptsetupt`, que nos ayuda a crear, acceder y administrar dispositivos cifrados.
+
+Para este caso simplemente ejecutamos:
 ```
 # cryptsetup luksFormat /dev/sda2
 ```
 
-## Open the encrypted partition and create group and volumes (root, hoome, swap)
-### Unlock the partition
+Ingresamos la constraseña para cifrar la partición:
+```
+Enter passphrase for /dev/sda2:
+```
+Y listo! cryptsetup cifro nuestra particion.
+
+## Desbloqueamos la particion cifrada y creamos root, home y swap
+Para desbloquear la partición usamos cryptsetup:
 ```
 # cryptsetup open --type luks /dev/sda2 lvm 
 ```
-### Create respective groups
+## Creamos los respectivos grupos 
+Con pvcreate creamos un volumen físico necesario para usar junto con LVM: 
 ```
 # pvcreate /dev/mapper/lvm
 ```
+Ahora creamos el grupo de volumen bajo el mismo volumen físico que acabamos de crear: 
 ```
 # vgcreate volume /dev/mapper/lvm
 ```
+Con lvcreate creamos un volumen lógico dentro de un grupo de volumen existente.
+Para este caso asignamos 2G para swap el tamaño de swap es proporcional a la memoria de cada máquina, puede ser más o puede ser menos, siguiendo la buena práctica se asigno 2G por que la máquina tiene 4G.
 ```
 # lvcreate -L2G volume -n swap
 ```
+Creamos el volumen lógico para root:
 ```
 # lvcreate -L50G volume -n root
 ```
+Y dejamos el espacio que queda libre para home:
 ```
 # lvcreate -l 100%FREE volume -n home
 ```
+Una vez creado el grupo y los volumenes lógicos, nos queda darle el formato a cada volumen lógico.
 
-## Formating partitions
-### root
+## Dandole el formato a los volumenes lógicos
+Para `root` y `home` usaremos `ext4`:
 ```
 # mkfs.ext4 /dev/mapper/volume-root
 ```
-### home
 ```
 # mkfs.ext4 /dev/mapper/volume-home
 ```
-### swap
+Y para swap usaremos mkswap:
 ```
 # mkswap /dev/mapper/volume-swap 
 ```
@@ -155,55 +202,65 @@ Y con esto ya tenemos lista la partición de arranque, ahora, procedemos a prepa
 # mount /dev/mapper/volume-home /mnt/home
 ```
 
-### Activate swap
+Activamos swap:
 ```
 # swapon /dev/mapper/volume-swap
 ```
 
----
-
-## [Core](https://wiki.archlinux.org/index.php/Installation_guide#Install_essential_packages) installation
+## Instalación base
+Una vez montadas las particiones procedemos a instalar los paquetes necesarios para tener un sistema funcional en nuestra máquina:
 ```
 # pacstrap /mnt base base-devel linux linux-firmware vim networkmanager mkinitcpio lvm2 cryptsetup
 ```
 
-## Generate [fstab](https://wiki.archlinux.org/index.php/Fstab)
+:zap:**Consejo**: recomiendo [leer esta pagina de la wiki](https://wiki.archlinux.org/index.php/Installation_guide#Installation) para conocer más a detalle sobre qué paquetes se pueden instalar para cada necesidad, esto se debe a que se han simplificado los paquetes que se incluyen en base, para este caso decidí instalar `linux linux-firmware vim networkmanager mkinitcpio lvm2 cryptsetup`, paquetes importantes para nuestra instalación cifrada.
+
+## Generamos el archivo fstab
+¿De qué nos sirve el archivo fstab? 
+fstab es usado para definir cómo las particiones, distintos dispositivos o sistemas de archivos remotos deben ser montados e integrados en el sistema.
+
 ```
 # genfstab -U /mnt >> /mnt/etc/fstab
 ```
 
-## Change root into the new system
+## Movemos root al nuevo sistema instalado
 ```
 # arch-chroot /mnt
 ```
 
-## Local Time settings
+## Configuración inicial
+En esta parte de la guía ya tenemos un sistema mínimo funcional, ahora solo nos queda terminar de configurar e instalar más paquetes necesarios.
+
+## Configuramos la zona horaria 
 ```
 # ln -s /usr/share/zoneinfo/America/Mexico_city /etc/localtime
 # hwclock --systohc --utc
 ```
 
-## Localization
+## Lenguaje
+Para cambiar nuestro sistema de idioma (una vez que se instale) lo hacemo editando el archivo /etc/locale.gen y simplemente descomentamos el idioma que nos gustaría usar con Arch.
 ```
 # vim /etc/locale.gen
 
 es_MX.UTF-8 UTF-8
 ```
-### Generate Locale
+Habiendo configurado el idioma deseado proceedemos a generar los locales para nuestra instalación:
 ```
 # locale-gen 
 ```
-### Save to config file
+
+Guardamos nuestra configuración en `locale.conf`:
 ```
 # locale > /etc/locale.conf
 ```
-## Network configuration
 
-### Hostname
+## Configuración de red
+
+Hostname
 ```
 # vim /etc/hostname
 ```
-### Add entries to hosts
+Agregar entradas a los hosts
 ```
 # vim /etc/hosts
 127.0.0.1	  localhost
@@ -211,28 +268,37 @@ es_MX.UTF-8 UTF-8
 127.0.1.1	  myhostname.localdomain	  myhostname
 ```
 
-### _Read carefuly_ the HOOKS named and its order, specially for this encrypted system
+## IMPORTANTE :warning: 
+Al estar configurando nuestra instalación bajo el esquema de cifrado LVM-LUKS tenemos que ordenar los HOOKS (scripts que se ejecutan el disco RAM inicial) de esta manera:
 ```
 # vim /etc/mkinitcpio.conf 
 
 HOOKS=(base udev autodetect modconf block keyboard encrypt lvm2 filesystems fsck)
 ```
-### Recreate [initramfs](https://wiki.archlinux.org/index.php/Installation_guide#Initramfs) 
+¿Qué podría suceder si se ignora el orden de esto?
+Arch no podría iniciar de manera correcta, nos bloquearía el uso del teclado y no podremos ingresar la contraseña para desbloquear nuestra partición.
+
+## Recreamos initramfs
+Para nuestra instalación cifrada es necesario recrear el initramfs (un esquema necesario para cargar un sistema de archivos temporal en la memoria, que se usa en el arranque de nuestro sistema Linux)
 ```
 # mkinitcpio -P
 ```
 
-## Establish root password
+## Establecemos la constraseña a root
 ```
 # passwd 
 ```
 
-## Install bootloader
+## Instalamos el gestor de arranque (systemd-boot)
+
 ```
 bootctl --path=/boot install
 ```
+¿Por qué instalamos systemd-boot y no GRUB?
+Por que systemd-boot esta pensado para el modo UEFI.
 
-## Configure boot loaders
+## Configuramos los cargadores de arranque (boot loaders)
+En este archivo definimos qué sistema nos gustaría iniciar:
 ```
 # vim /boot/loader/loader.conf
 
@@ -240,6 +306,7 @@ default arch
 timeout 3 
 editor 0
 ```
+En este otro archivo indicamos el título de nuestra entrada (Arch Linux), el kernel y en las optiones indicamos la partición cifrada `root`:
 ```
 # vim /boot/loader/entries/arch.conf
 
@@ -248,19 +315,20 @@ linux /vmlinuz-linux
 initrd /initramfs-linux.img
 options cryptdevice=UUID=86a872ee-b133-4e13-8283-d99024361d79:volume root=/dev/mapper/volume-root quiet rw
 ```
-### Obtain the cryptdevice UUID under vim with:
+:zap:**Consejo**: Para obtener el UUID del cryptdevice dentro de `vim` con este comando:
 ``` 
 :read ! blkid /dev/sda2 
 ``` 
 
-## Logout from arch-chroot, umount partitions and reboot
+## Salimos de arch-chroot, desmontamos las particiones y reiniciamos
 `Ctrl+D` 
 
 ```
 # umount -R /mnt 
 # reboot
 ```
----
+A este punto ya tenemos un sistema base funcional en nuestra máquina (es momento de desconectar la USB), ya solo nos quedan algunos detalles por configurar.
+
 ## Personalización  
 Ahora procedemos a personalizar nuestra instalación de Arch.
 
@@ -275,36 +343,47 @@ Ahora, instalamos sudo:
 # sudo pacman -S sudo
 ```
 
-Activamos sudo para los usuarios:
+Activamos sudo para todos los usuarios:
 ## Activate sudo for users
 ```
 # vim /etc/sudoers
 %wheel ALL=(ALL) ALL
 ```
-Y listo! ya con esto ya podemos iniciar sesión como usario 
+Y listo! ya con esto ya podemos iniciar sesión como usario y usar `sudo`.
+
 ## Configurando Pacman
-para configurar Pacman es necesario editar el archivo que se encuentra en `/etc/pacman.conf`.
-Agregamos este huevo de pascua que tiene pacman! cuando uses pacman vas a notar de que se trata
-```
+Para configurar Pacman es necesario editar el archivo que se encuentra en `/etc/pacman.conf`.
+
+¿Qué podemos configurar en ese archivo?
+* Directorios para root, la base de datos de pacman, caché, logs, gpg
+* Cambiar el modo en que pacman nos muestra algunas opciones como el tamaño total de la descarga de paquetes, usar el log, etc.
+* Agregar/Quitar repositorios
+
+Agregamos este huevo de pascua que tiene `pacman`! cuando uses pacman vas a notar de que se trata
+;)
+ 
+ ```
 # vim /etc/pacman.conf
 
 ILoveCandy
 ```
 
-## Update system and reboot
+## Actualizamos y reiniciamos 
 ```
 # sudo pacman -Syu && reboot
 ``` 
 
 ## Iniciando sesión como usario regular
-
+Una vez que iniciamos sesión como usuario regular activamos el llavero de pacman:
 ```
 $ sudo pacman-key init
 ```
 
 Y finalmente tienes Arch Linux instalado en tu máquina!
-Ahora solo queda personalizarlo exactamente como te gustaría usarlo, podria ser instalar un entorno gráfico, un administrador de ventanas o incluso usarlo así como está.
+
+Ahora solo queda personalizarlo exactamente como a ti te gustaría usarlo, podria ser instalar un [entorno gráfico](https://wiki.archlinux.org/index.php/Desktop_environment_(Espa%C3%B1ol)), un [administrador de ventanas](https://wiki.archlinux.org/index.php/Window_manager_(Espa%C3%B1ol)) o incluso dejarlo así como está.
 
 ---
+## Gracias por leer!
 ## ¿Comentarios? 
 Escríbeme un [tweet](https://twitter.com/51v4n)!

@@ -22,4 +22,4 @@ You can find me on [GitHub](https://github.com/jcstr) and [Twitter](https://twit
 * [DevSpace](https://devspace.mx): Started the Tech Talks community alongside Linuxeros Zapopan and DevSpace community. 
 
 ### Talks
-* Arch Linux Contribution workshop - Oct 22, 2020 at [Cumbre de Contribuidores de Open Source Software](https://www.youtube.com/watch?v=a4KpbdGiwtk) alongside [Andrea Gómez](https://github.com/da-edra) and [Santiago Torres](https://badhomb.re).
+* Arch Linux Contribution workshop - Oct 22, 2020 @ [Cumbre de Contribuidores de Open Source Software](https://www.youtube.com/watch?v=a4KpbdGiwtk) alongside [Andrea Gómez](https://github.com/da-edra) and [Santiago Torres](https://badhomb.re) and announced [Arch Linux México](https://t.me/archlinuxmx).
