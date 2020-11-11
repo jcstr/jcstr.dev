@@ -25,11 +25,11 @@
 <main id="content">
 <article>
     <header id="post-header">
-        <h1>Así instalo Arch Linux</h1><time>October 27, 2020</time></header><p>Te doy la bienvenida a mi primer post! el cual dedicare a la <a href="https://t.me/archlinuxmx">comunidad Mexicana de Arch Linux</a>.</p>
+        <h1>Así instalo Arch Linux</h1><time>October 27, 2020</time></header><p>Te doy la bienvenida a mi primer post! el cual dedicare a la <a href="https://archlinux.mx">comunidad Mexicana de Arch Linux</a>.</p>
 <p>Uno de los principales obstáculos que se encuentran en algunas comunidades de Software Libre y de Código Abierto, particularmente en México, es el no tener el dominio del idioma inglés, pero no hay ningún problema, para ello decidí escribir esta guía al español para poder ayudar a quienes tienen el interés de instalar <strong><a href="https://archlinux.org">Arch Linux</a></strong> y así poder usar el mismo día.</p>
 <h2 id="para-quién-está-dirigida-está-guía">¿Para quién está dirigida está guía?</h2>
 <ul>
-<li>Para aquellos que <del>son expertos</del> tienen la actitud de hacer las cosas por sí mismos.</li>
+<li>Para quienes <del>son expertos</del> tienen la actitud de hacer las cosas por sí mismos.</li>
 <li>Está guía contiene todos los pasos enfocados para una instalación directa en la máquina.</li>
 </ul>
 <h2 id="qué-obtendré-al-finalizar-esta-guía">¿Qué obtendré al finalizar esta guía?</h2>
@@ -130,14 +130,14 @@ Para este caso asignamos 2G para swap el tamaño de swap es proporcional a la me
 </code></pre><pre><code># mkfs.ext4 /dev/mapper/volume-home
 </code></pre><p>Y para swap usaremos mkswap:</p>
 <pre><code># mkswap /dev/mapper/volume-swap 
-</code></pre><h3 id="create-boot-and-home-directories-under-mnt">Create boot and home directories under /mnt</h3>
+</code></pre><h3 id="creamos-los-directorios-home-y-boot-sobre-mnt">Creamos los directorios home y boot sobre /mnt</h3>
 <pre><code># mkdir /mnt/home
 # mkdir /mnt/boot
-</code></pre><h3 id="mount-partitions">Mount partitions</h3>
+</code></pre><h3 id="montamos-las-particiones">Montamos las particiones</h3>
 <pre><code># mount /dev/mapper/volume-root /mnt
 # mount /dev/sda1 /mnt/boot
 # mount /dev/mapper/volume-home /mnt/home
-</code></pre><p>Activamos swap:</p>
+</code></pre><h3 id="activamos-swap">Activamos swap:</h3>
 <pre><code># swapon /dev/mapper/volume-swap
 </code></pre><h2 id="instalación-base">Instalación base</h2>
 <p>Una vez montadas las particiones procedemos a instalar los paquetes necesarios para tener un sistema funcional en nuestra máquina:</p>
@@ -239,11 +239,9 @@ ILoveCandy
 <p>Una vez que iniciamos sesión como usuario regular activamos el llavero de pacman:</p>
 <pre><code>$ sudo pacman-key init
 </code></pre><p>Y finalmente tienes Arch Linux instalado en tu máquina!</p>
-<p>Ahora solo queda personalizarlo exactamente como a ti te gustaría usarlo, podria ser instalar un <a href="https://wiki.archlinux.org/index.php/Desktop_environment_(Espa%C3%B1ol)">entorno gráfico</a>, un <a href="https://wiki.archlinux.org/index.php/Window_manager_(Espa%C3%B1ol)">administrador de ventanas</a> o incluso dejarlo así como está.</p>
-<hr>
-<h2 id="gracias-por-leer">Gracias por leer!</h2>
-<h2 id="comentarios">¿Comentarios?</h2>
-<p>Escríbeme un <a href="https://twitter.com/51v4n">tweet</a>!</p>
+<h2 id="haz-que-arch-funcione-como-a-ti-te-guste">Haz que Arch funcione como a ti te guste</h2>
+<p>Ahora solo queda personalizarlo exactamente como a ti te gustaría usarlo, podria ser instalar un <a href="https://wiki.archlinux.org/index.php/Desktop_environment_(Espa%C3%B1ol)">entorno gráfico</a>, un <a href="https://wiki.archlinux.org/index.php/Window_manager_(Espa%C3%B1ol)">administrador de ventanas</a> o incluso dejarlo así como está. Esa es la parte maás genial de Arch Linux, tú eliges como usarlo :D</p>
+<p>Haz llegado al final de esta guía, espero que te haya servido para poder instalar Arch Linux en tu máquina!</p>
 </article>
 
         </main><footer id="footer">
