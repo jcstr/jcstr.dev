@@ -4,12 +4,12 @@ date: 2020-10-27T21:31:37-06:00
 draft: true
 ---
 
-Te doy la bienvenida a mi primer post! el cual dedicare a la [comunidad Mexicana de Arch Linux](https://t.me/archlinuxmx).
+Te doy la bienvenida a mi primer post! el cual dedicare a la [comunidad Mexicana de Arch Linux](https://archlinux.mx).
 
 Uno de los principales obstáculos que se encuentran en algunas comunidades de Software Libre y de Código Abierto, particularmente en México, es el no tener el dominio del idioma inglés, pero no hay ningún problema, para ello decidí escribir esta guía al español para poder ayudar a quienes tienen el interés de instalar **[Arch Linux](https://archlinux.org)** y así poder usar el mismo día.
 
 ## ¿Para quién está dirigida está guía?
-* Para aquellos que ~~son expertos~~ tienen la actitud de hacer las cosas por sí mismos.
+* Para quienes ~~son expertos~~ tienen la actitud de hacer las cosas por sí mismos.
 * Está guía contiene todos los pasos enfocados para una instalación directa en la máquina.
 
 ## ¿Qué obtendré al finalizar esta guía?
@@ -190,19 +190,19 @@ Y para swap usaremos mkswap:
 # mkswap /dev/mapper/volume-swap 
 ```
 
-### Create boot and home directories under /mnt
+### Creamos los directorios home y boot sobre /mnt
 ```
 # mkdir /mnt/home
 # mkdir /mnt/boot
 ```
-### Mount partitions
+### Montamos las particiones
 ```
 # mount /dev/mapper/volume-root /mnt
 # mount /dev/sda1 /mnt/boot
 # mount /dev/mapper/volume-home /mnt/home
 ```
 
-Activamos swap:
+### Activamos swap:
 ```
 # swapon /dev/mapper/volume-swap
 ```
@@ -381,9 +381,8 @@ $ sudo pacman-key init
 
 Y finalmente tienes Arch Linux instalado en tu máquina!
 
-Ahora solo queda personalizarlo exactamente como a ti te gustaría usarlo, podria ser instalar un [entorno gráfico](https://wiki.archlinux.org/index.php/Desktop_environment_(Espa%C3%B1ol)), un [administrador de ventanas](https://wiki.archlinux.org/index.php/Window_manager_(Espa%C3%B1ol)) o incluso dejarlo así como está.
 
----
-## Gracias por leer!
-## ¿Comentarios? 
-Escríbeme un [tweet](https://twitter.com/51v4n)!
+## Haz que Arch funcione como a ti te guste 
+Ahora solo queda personalizarlo exactamente como a ti te gustaría usarlo, podria ser instalar un [entorno gráfico](https://wiki.archlinux.org/index.php/Desktop_environment_(Espa%C3%B1ol)), un [administrador de ventanas](https://wiki.archlinux.org/index.php/Window_manager_(Espa%C3%B1ol)) o incluso dejarlo así como está. Esa es la parte maás genial de Arch Linux, tú eliges como usarlo :D 
+
+Haz llegado al final de esta guía, espero que te haya servido para poder instalar Arch Linux en tu máquina! 
