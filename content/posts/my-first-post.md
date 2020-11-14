@@ -30,7 +30,7 @@ Una vez que el instalador inició es momento de configurar el teclado acorde al 
 # loadkeys la-latin1
 ```
 
-Recomiendo [leer esta página de la wiki]() para ahondar más en la configuración del teclado.
+Recomiendo [leer esta página de la wiki](https://wiki.archlinux.org/index.php/Linux_console_(Espa%C3%B1ol)/Keyboard_configuration_(Espa%C3%B1ol)) para ahondar más en la configuración del teclado.
 
 ## Conectandose a Internet :earth_americas:
 Para conectarnos a Inernet desde el instalador  , necesitamos ejectuar una serie de comandos con `iwctl`:
@@ -103,7 +103,7 @@ Escribimos los cambios: `w`
 Confirmamos: `y`
 
 ## Dandole formato a la partición boot
-Para este caso en particular es necesario darle formato a la partición boot con el sistema de archivos FAT32 el cual es un requisito para poder instalar systemd-boot:
+Para este caso en particular es necesario darle formato a la partición boot con el sistema de archivos FAT32 el cual es un requisito para poder instalar [systemd-boot](https://wiki.archlinux.org/index.php/Systemd-boot_(Espa%C3%B1ol)):
 ```
 # mkfs.fat -F32 /dev/sda1
 ```
@@ -134,8 +134,8 @@ Así quedaría todo el disco una vez instalado Arch:
 
 Ahora si, continuamos con la guía.
 
-## Configurando el cifrado con (cryptsetup)
-Para poder cifrar la partición `/dev/sda2` necesitamos usar `cryptsetupt`, que nos ayuda a crear, acceder y administrar dispositivos cifrados.
+## Configurando el cifrado con [cryptsetup](https://wiki.archlinux.org/index.php/Dm-crypt_(Espa%C3%B1ol)/Device_encryption_(Espa%C3%B1ol)#Utilizaci%C3%B3n_de_cryptsetup)
+Para poder cifrar la partición `/dev/sda2` necesitamos usar `cryptsetupt`, que nos ayuda a crear, acceder y administrar unidades de almacenamiento cifrados.
 
 Para este caso simplemente ejecutamos:
 ```
@@ -213,11 +213,13 @@ Una vez montadas las particiones procedemos a instalar los paquetes necesarios p
 # pacstrap /mnt base base-devel linux linux-firmware vim networkmanager mkinitcpio lvm2 cryptsetup
 ```
 
-:zap:**Consejo**: recomiendo [leer esta pagina de la wiki](https://wiki.archlinux.org/index.php/Installation_guide#Installation) para conocer más a detalle sobre qué paquetes se pueden instalar para cada necesidad, esto se debe a que se han simplificado los paquetes que se incluyen en base, para este caso decidí instalar `linux linux-firmware vim networkmanager mkinitcpio lvm2 cryptsetup`, paquetes importantes para nuestra instalación cifrada.
+:zap:**Consejo**: recomiendo [leer esta pagina de la wiki](https://wiki.archlinux.org/index.php/Installation_guide#Installation) para conocer más a detalle sobre qué paquetes se pueden instalar para cada necesidad, esto se debe a que se han simplificado los paquetes que se incluyen en el paquete `base`. 
+
+Para este caso decidí instalar `linux linux-firmware vim networkmanager mkinitcpio lvm2 cryptsetup`, paquetes necesarios para nuestra instalación cifrada.
 
 ## Generamos el archivo fstab
 ¿De qué nos sirve el archivo fstab? 
-fstab es usado para definir cómo las particiones, distintos dispositivos o sistemas de archivos remotos deben ser montados e integrados en el sistema.
+fstab es usado para definir cómo las particiones, distintas unidades de almacenamiento o sistemas de archivos remotos deben ser montados e integrados en el sistema.
 
 ```
 # genfstab -U /mnt >> /mnt/etc/fstab
