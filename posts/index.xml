@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Jesús Castro</title>
-    <link>https://jcstr.github.io/posts/</link>
+    <link>https://jcstr.dev/posts/</link>
     <description>Recent content in Posts on Jesús Castro</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 27 Oct 2020 21:31:37 -0600</lastBuildDate>
     
-	<atom:link href="https://jcstr.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://jcstr.dev/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     
     <item>
       <title>Así instalo Arch Linux</title>
-      <link>https://jcstr.github.io/as%C3%AD-instalo-arch-linux/</link>
+      <link>https://jcstr.dev/as%C3%AD-instalo-arch-linux/</link>
       <pubDate>Tue, 27 Oct 2020 21:31:37 -0600</pubDate>
       
-      <guid>https://jcstr.github.io/as%C3%AD-instalo-arch-linux/</guid>
+      <guid>https://jcstr.dev/as%C3%AD-instalo-arch-linux/</guid>
       <description>Te doy la bienvenida a mi primer post! el cual dedicare a la comunidad Mexicana de Arch Linux.
 Uno de los principales obstáculos que se encuentran en algunas comunidades de Software Libre y de Código Abierto, particularmente en México, es el no tener el dominio del idioma inglés, pero no hay ningún problema, para ello decidí escribir esta guía al español para poder ayudar a quienes tienen el interés de instalar Arch Linux y así poder usar el mismo día.</description>
     </item>
