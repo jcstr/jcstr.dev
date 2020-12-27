@@ -1,7 +1,7 @@
 ---
 title: "Así instalo Arch Linux"
 date: 2020-10-27T21:31:37-06:00
-draft: true
+draft: false
 ---
 
 Te doy la bienvenida a mi primer post! el cual dedicare a la [comunidad Mexicana de Arch Linux](https://archlinux.mx).
@@ -385,6 +385,6 @@ Y finalmente tienes Arch Linux instalado en tu máquina!
 
 
 ## Haz que Arch funcione como a ti te guste 
-Ahora solo queda personalizarlo exactamente como a ti te gustaría usarlo, podria ser instalar un [entorno gráfico](https://wiki.archlinux.org/index.php/Desktop_environment_(Espa%C3%B1ol)), un [administrador de ventanas](https://wiki.archlinux.org/index.php/Window_manager_(Espa%C3%B1ol)) o incluso dejarlo así como está. Esa es la parte maás genial de Arch Linux, tú eliges como usarlo :D 
+Ahora solo queda personalizarlo exactamente como a ti te gustaría usarlo, podria ser instalar un [entorno gráfico](https://wiki.archlinux.org/index.php/Desktop_environment_(Espa%C3%B1ol)), un [administrador de ventanas](https://wiki.archlinux.org/index.php/Window_manager_(Espa%C3%B1ol)) o incluso dejarlo así como está. Esa es la parte más genial de Arch Linux, tú eliges como usarlo :D 
 
 Haz llegado al final de esta guía, espero que te haya servido para poder instalar Arch Linux en tu máquina! 
