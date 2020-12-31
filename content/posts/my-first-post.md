@@ -346,7 +346,7 @@ Ahora, instalamos sudo:
 ```
 
 Activamos sudo para todos los usuarios:
-## Activate sudo for users
+
 ```
 # vim /etc/sudoers
 %wheel ALL=(ALL) ALL

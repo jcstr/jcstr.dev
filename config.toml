@@ -9,7 +9,7 @@ pygmentsCodeFences = true
 pygmentsUseClasses = true
 
 [params]
-  description = "Jesús Castro"
+  description = "Techie Writings and Thoughts"
   copyright = "Copyright © 2020 Jesús Castro - CC BY-NC 4.0"
   dark = "auto"
   highlight = true
