@@ -53,3 +53,5 @@ Thanks to all people that helped me achieve new things and the time well spended
 Now that I'm aware thanks to all of the lessons learned this year I'll focus on achieve new goals and connect with new people.
 
 ![](https://i.imgur.com/YxCoO3o.png)
+
+<a href="https://twitter.com/gccstr?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @gccstr</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
