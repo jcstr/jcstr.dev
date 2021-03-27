@@ -388,3 +388,5 @@ Y finalmente tienes Arch Linux instalado en tu máquina!
 Ahora solo queda personalizarlo exactamente como a ti te gustaría usarlo, podria ser instalar un [entorno gráfico](https://wiki.archlinux.org/index.php/Desktop_environment_(Espa%C3%B1ol)), un [administrador de ventanas](https://wiki.archlinux.org/index.php/Window_manager_(Espa%C3%B1ol)) o incluso dejarlo así como está. Esa es la parte más genial de Arch Linux, tú eliges como usarlo :D 
 
 Haz llegado al final de esta guía, espero que te haya servido para poder instalar Arch Linux en tu máquina! 
+
+<a href="https://twitter.com/gccstr?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @gccstr</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>

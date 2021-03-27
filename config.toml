@@ -10,7 +10,7 @@ pygmentsUseClasses = true
 
 [params]
   description = "Techie Writings and Thoughts"
-  copyright = "Copyright © 2020 Jesús Castro - CC BY-NC 4.0"
+  copyright = "© 2021 Jesús Castro · CC BY-NC 4.0"
   dark = "auto"
   highlight = true
 
