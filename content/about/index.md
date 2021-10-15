@@ -5,23 +5,29 @@ draft: false
 
 ## Sup! 👋
 
-My name is **Jesús Castro** currently living in Jalisco, México 🇲🇽 but working remotely thanks to the Internet 🌎
+My name is **Jesús Castro**, currently living in Jalisco, México 🇲🇽 but working remotely thanks to the Internet. 🌎
 
-I'm a Software Engineer and my interests are **Web Development**, **High-scalable Infrastructure**, **peer-to-peer technologies**, **Linux** and **Open Source**.
+I'm a Software Engineer and my interests are **Web Development**, **High-scalable Infrastructure**, **Linux** and **Open Source**.
 
-## Contact
-You can find me on [GitHub](https://github.com/jcstr), [Twitter](https://twitter.com/gccstr), [LinkedIn](https://linkedin.com/in/jcstr) and [Polywork](https://poly.work/jcstr).
+![Nada Es Lejos](https://i.imgur.com/w8GIZvr.jpg)
+## Contact 📇
+You can find me on: 
+* [GitHub](https://github.com/jcstr)  
+* [Twitter](https://twitter.com/gccstr) 
+* [LinkedIn](https://linkedin.com/in/jcstr) 
+* [Polywork](https://poly.work/jcstr)
+* [Telegram](https://t.me/gccstr)
 
-Also, you can check my Software Guru's [profile](https://sg.com.mx/buzz/autores/jesus-castro).
+Also, you can check my [Software Guru's page](https://sg.com.mx/buzz/autores/jesus-castro).
 
-Email: [jesuscastro@pm.me](mailto:jesuscastro@pm.me)
+✉️ [jesuscastro@pm.me](mailto:jesuscastro@pm.me)
 
-[PGP](http://keys.gnupg.net/pks/lookup?op=get&search=0x2EFBC8E51D80C96E) Fingerprint:
+🔐 [PGP](https://keys.openpgp.org/vks/v1/by-fingerprint/8BFBEBA5A6F817E9CE65708E9CD31EA7F1CAEB08) Fingerprint:
 ```
-EEBE 0F82 703C 543C 9AF7 21A3 2EFB C8E5 1D80 C96E
+8BFB EBA5 A6F8 17E9 CE65 708E 9CD3 1EA7 F1CA EB08
 ```
 
-## Projects
+## Projects 👨🏻‍💻
 ### My own projects and contributions
 * **[Linuxeros Zapopan 🐧](https://twitter.com/lnxzpn)**
     * A Linux users community. Sharing knowledge about Free Software and Open Source. Check our [YouTube channel](https://www.youtube.com/c/LinuxerosZapopan)!
@@ -36,16 +42,21 @@ EEBE 0F82 703C 543C 9AF7 21A3 2EFB C8E5 1D80 C96E
 * **[Arch Linux](https://wiki.archlinux.org/index.php/User:51v4n)**
     * Testing packages, maintaining AUR packages and translating the Wiki.
 * **[Arch Linux México 🇲🇽](https://twitter.com/archlinuxmx)**
-    * Helped to start the Mexican Arch Linux Community alongside Santiago Torres and Andrea Gómez, we announced it during the CCOSS 2020 event. The purpose of this community is to help more Mexicans to get involved onto the Arch Linux project.
+    * Started the Mexican Arch Linux Community alongside Santiago Torres and Andrea Gómez, we announced it during the CCOSS 2020 event. The purpose of this community is to help more mexicans to get involved onto the Arch Linux project.
 
-## Talks
-* **[Arch Linux contribution workshop](https://www.youtube.com/watch?v=a4KpbdGiwtk)** - Oct 22, 2020 @ [Cumbre de Contribuidores de Open Source Software](https://ccoss.org) alongside [Andrea Gómez](https://github.com/da-edra) and [Santiago Torres](https://badhomb.re).
+## Talks 🎤
 * **[Linux install fest](https://camo.githubusercontent.com/69c9e18cad2f0dac0a4129ebcb770106195da9a7ecc0e823a419e89ffdff1c21/68747470733a2f2f692e696d6775722e636f6d2f4275414a71786f2e6a7067)** - Apr 12, 2019 @ [Tecnológico Mario Molina](http://zapopan.tecmm.edu.mx/).
+* **[Arch Linux, Cómo contribuir](https://www.meetup.com/es/Open-SOurce-Mexico-OSOM/events/268481089/)** - Feb 12, 2020 @ [Open Source México](https://twitter.com/amigososom).
+* **[Arch Linux contribution workshop](https://www.youtube.com/watch?v=a4KpbdGiwtk)** - Oct 22, 2020 @ [CCOSS](https://ccoss.org) alongside [Andrea Gómez](https://github.com/da-edra) and [Santiago Torres](https://badhomb.re).
+* **[Linux Para Desarrolladores](https://twitter.com/gccstr/status/1435385827089993728?s=20)** - Oct 22, 2020 @ [Hackademy - Future Developers Program](https://futuredevelopers.lat)
+* **[Community Nights - Tech Talks](https://www.youtube.com/watch?v=lOC3KNHWW-Q)** - Sep 9, 2021 @ [Tomato Valley](https://tomatovalley.net/).
+* **[Tech Experts 4 U - Tech Talks](https://www.facebook.com/events/1154088928433350/)** - Sep 9, 2021 @ [Biblioteca Benjamín Franklin](https://www.facebook.com/BibliotecaBenjaminFranklin/).
 
 
-## Donate
+
+## Donate ❤️
 If the work I've done on Open Source have helped you on some way, consider to make a donation through **GitHub Sponsors**:
 <iframe src="https://github.com/sponsors/jcstr/button" title="Sponsor jcstr" height="35" width="116" style="border: 0;"></iframe>
 
-## Authoring
+## Authoring ✍️
 All the posts of this site are issued with the [Creative Commons CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/) license.
