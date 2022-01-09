@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="en">
+    <meta name="color-scheme" content="light dark">
+
+    
+
+    <meta name="author" content="Jesús Castro">
+    <meta name="description" content="¡Te doy la bienvenida a mi primer post! el cual dedicare a la comunidad Mexicana de Arch Linux.
+Uno de los principales obstáculos que se encuentran en algunas comunidades de Software Libre y de Código Abierto, particularmente en México, es el no tener el dominio del idioma inglés, pero no hay ningún problema, para ello decidí escribir esta guía al español para poder ayudar a quienes tienen el interés de instalar Arch Linux y así poder usar el mismo día.">
+    <meta name="keywords" content="blog,developer,personal">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Así instalo Arch Linux"/>
+<meta name="twitter:description" content="¡Te doy la bienvenida a mi primer post! el cual dedicare a la comunidad Mexicana de Arch Linux.
+Uno de los principales obstáculos que se encuentran en algunas comunidades de Software Libre y de Código Abierto, particularmente en México, es el no tener el dominio del idioma inglés, pero no hay ningún problema, para ello decidí escribir esta guía al español para poder ayudar a quienes tienen el interés de instalar Arch Linux y así poder usar el mismo día."/>
+
+    <meta property="og:title" content="Así instalo Arch Linux" />
+<meta property="og:description" content="¡Te doy la bienvenida a mi primer post! el cual dedicare a la comunidad Mexicana de Arch Linux.
+Uno de los principales obstáculos que se encuentran en algunas comunidades de Software Libre y de Código Abierto, particularmente en México, es el no tener el dominio del idioma inglés, pero no hay ningún problema, para ello decidí escribir esta guía al español para poder ayudar a quienes tienen el interés de instalar Arch Linux y así poder usar el mismo día." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jcstr.dev/posts/my-first-post/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2020-10-27T21:31:37-06:00" />
+<meta property="article:modified_time" content="2020-10-27T21:31:37-06:00" />
+
+
+
+    <title>
+  Así instalo Arch Linux · jcstr
+</title>
+
+    
+      <link rel="canonical" href="https://jcstr.dev/posts/my-first-post/">
+    
+
+    <link rel="preload" href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
+
+    
+      
+      
+      <link rel="stylesheet" href="/css/coder.min.d9fddbffe6f27e69985dc5fe0471cdb0e57fbf4775714bc3d847accb08f4a1f6.css" integrity="sha256-2f3b/&#43;byfmmYXcX&#43;BHHNsOV/v0d1cUvD2Eesywj0ofY=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+      
+        
+        
+        <link rel="stylesheet" href="/css/coder-dark.min.002ee2378e14c7a68f1f0a53d9694ed252090987c4e768023fac694a4fc5f793.css" integrity="sha256-AC7iN44Ux6aPHwpT2WlO0lIJCYfE52gCP6xpSk/F95M=" crossorigin="anonymous" media="screen" />
+      
+    
+
+    
+
+    
+
+    <link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+    <meta name="generator" content="Hugo 0.90.1" />
+  </head>
+
+  
+  
+    
+  
+  <body class="preload-transitions colorscheme-auto">
+    
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="/">
+      jcstr
+    </a>
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/posts/">Posts</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="https://jcstr.dev/posts/my-first-post/">
+              Así instalo Arch Linux
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+              <time datetime='2020-10-27T21:31:37-06:00'>
+                27 October, 2020
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              9-minute read
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      <div>
+        
+        <p>¡Te doy la bienvenida a mi primer post! el cual dedicare a la <a href="https://twitter.com/archlinuxmx">comunidad Mexicana de Arch Linux</a>.</p>
+<p>Uno de los principales obstáculos que se encuentran en algunas comunidades de Software Libre y de Código Abierto, particularmente en México, es el no tener el dominio del idioma inglés, pero no hay ningún problema, para ello decidí escribir esta guía al español para poder ayudar a quienes tienen el interés de instalar <strong><a href="https://archlinux.org">Arch Linux</a></strong> y así poder usar el mismo día.</p>
+<h2 id="para-quién-está-dirigida-esta-guía">
+  ¿Para quién está dirigida esta guía?
+  <a class="heading-link" href="#para-qui%c3%a9n-est%c3%a1-dirigida-esta-gu%c3%ada">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<ul>
+<li>Para quienes <del>son expertos</del> tienen la actitud de hacer las cosas por sí mismos.</li>
+<li>Está guía contiene todos los pasos enfocados para una instalación en la máquina.</li>
+</ul>
+<h2 id="qué-obtendré-al-finalizar-esta-guía">
+  ¿Qué obtendré al finalizar esta guía?
+  <a class="heading-link" href="#qu%c3%a9-obtendr%c3%a9-al-finalizar-esta-gu%c3%ada">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<ul>
+<li>Una instalación de Arch Linux <em>cifrada</em> bajo el esquema <a href="https://wiki.archlinux.org/index.php/Dm-crypt_(Espa%C3%B1ol)/Encrypting_an_entire_system_(Espa%C3%B1ol)#LVM_sobre_LUKS">LVM-LUKS</a>.</li>
+</ul>
+<p>(Osea, un sistema basado en <strong>Linux</strong> con el disco cifrado {&hellip; para más seguridad 🔒}).</p>
+<p>⚡<strong>Consejo</strong>: Antes de instalar Arch Linux en tu máquina recomiendo que aprendas a familiarizarte con Arch desde una máquina virtual, ya sea con <a href="https://picodotdev.github.io/blog-bitix/2014/11/como-instalar-y-guia-de-inicio-basica-de-docker/">Docker</a> o <a href="https://fortinux.gitbooks.io/humble_tips/content/capitulo_1_usando_aplicaciones_en_linux/tutorial_instalar_vagrant_para_usar_ambientes_virtuales_en_gnulinux.html">Vagrant</a>.</p>
+<h2 id="preliminares-">
+  Preliminares 🏁
+  <a class="heading-link" href="#preliminares-">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<p>Antes que nada, para poder instalar Arch Linux, necesitamos iniciar la imagen <code>.iso</code> desde una USB en la máquina que se desea instalar y para efectos prácticos, yo asumo que ya se tiene lista la USB cargada con la imagen de Arch Linux, además de que hay diferentes maneras de poder cargar la imagen de Arch en la USB yo sugiero <a href="https://wiki.archlinux.org/index.php/USB_flash_installation_medium_(Espa%C3%B1ol)">leer esta página de la wiki</a> para conocer más respecto a este tema.</p>
+<h2 id="configurando-el-teclado-del-instalador-">
+  Configurando el teclado del instalador 💿
+  <a class="heading-link" href="#configurando-el-teclado-del-instalador-">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<p>Una vez que el instalador inició es momento de configurar el teclado acorde al idioma/región que tenemos en nuestro teclado, para ello yo asumo la configuración para <code>la-latin</code> (Español Latinoamericano):</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># loadkeys la-latin1
+</code></pre></div><p>Recomiendo <a href="https://wiki.archlinux.org/index.php/Linux_console_(Espa%C3%B1ol)/Keyboard_configuration_(Espa%C3%B1ol)">leer esta página de la wiki</a> para ahondar más en la configuración del teclado.</p>
+<h2 id="conectandose-a-internet-">
+  Conectandose a Internet 🌎
+  <a class="heading-link" href="#conectandose-a-internet-">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<p>Para conectarnos a Inernet desde el instalador  , necesitamos ejectuar una serie de comandos con <code>iwctl</code>:</p>
+<p>Con este comando conocemos los dispositivos Wi-Fi que podemos usar para conectarnos:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># iwctl device list
+</code></pre></div><p>Ahora, procedemos a buscar redes con el dispositivo WiFi especificado:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># iwctl station DEVICE scan
+</code></pre></div><p>Listamos todas las redes disponibles:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># iwctl station DEVICE get-networks
+</code></pre></div><p>Finalmente para conectarnos a una red en específico ejecutamos:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># iwctl --passphrase=PASSPHRASE station DEVICE connect SSID
+</code></pre></div><p>Para verificar que nos hemos conectado efectivamente hacemos ping:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># ping archlinux.org
+</code></pre></div><p>Listo! ya podemos continuar con la guía de instalación para poder instalar todo lo necesario.</p>
+<h2 id="verificar-el-modo-de-arranque-boot">
+  Verificar el modo de arranque (boot)
+  <a class="heading-link" href="#verificar-el-modo-de-arranque-boot">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<p>Para este caso en particular yo asumo el modo <a href="https://wiki.archlinux.org/index.php/Unified_Extensible_Firmware_Interface_(Espa%C3%B1ol)">UEFI</a> y para verificar que la máquina tiene dicho modo, con este comando verifico la existencia de todas las variables que integran el firmware:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># ls /sys/firmware/efi/efivars
+</code></pre></div><p>⚡<strong>Consejo</strong>: Si la salida del comando no muestra nada, entonces tu máquina no tiene el modo UEFI, por lo que sugiero <a href="https://wiki.archlinux.org/index.php/Arch_boot_process_(Espa%C3%B1ol)">leer esta página de la wiki</a>.</p>
+<h2 id="verificando-las-propiedades-del-disco">
+  Verificando las propiedades del disco
+  <a class="heading-link" href="#verificando-las-propiedades-del-disco">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<p>Para conocer el disco y sus respectivas particiones ejecutamos:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># fdisk -l
+</code></pre></div><p>Una vez que tenemos el conocimiento sobre nuestro disco, procedemos a darle formato a las particiones necesarias.</p>
+<h2 id="preparando-la-particion-de-arranque-boot">
+  Preparando la particion de arranque (boot)
+  <a class="heading-link" href="#preparando-la-particion-de-arranque-boot">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<p>Para crear la partición de arranque (<code>/dev/sda1/</code>) utilizaremos <code>gdisk</code>:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># gdisk /dev/sda
+</code></pre></div><p>Pulsamos la tecla: <code>o</code></p>
+<p>Pulsamos la tecla: <code>y</code></p>
+<p>Puslamos la tecla: <code>n</code></p>
+<p>Pulsamos la tecla: <code>Enter</code></p>
+<p>Definimos el tamaño de la partición: <code>+512MIB</code></p>
+<p>Definimos la partición para <a href="https://wiki.archlinux.org/index.php/EFI_system_partition_(Espa%C3%B1ol)">EFI</a>: <code>ef00</code></p>
+<p>Pulsamos la tecla: <code>n</code></p>
+<p>Pulsamos la tecla: <code>enter</code></p>
+<p>Definimos el tipo de partición <a href="https://wiki.archlinux.org/index.php/GPT_fdisk">LVM</a>: <code>8e00</code></p>
+<p>Escribimos los cambios: <code>w</code></p>
+<p>Confirmamos: <code>y</code></p>
+<h2 id="dandole-formato-a-la-partición-boot">
+  Dandole formato a la partición boot
+  <a class="heading-link" href="#dandole-formato-a-la-partici%c3%b3n-boot">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<p>Para este caso en particular es necesario darle formato a la partición boot con el sistema de archivos FAT32 el cual es un requisito para poder instalar <a href="https://wiki.archlinux.org/index.php/Systemd-boot_(Espa%C3%B1ol)">systemd-boot</a>:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># mkfs.fat -F32 /dev/sda1
+</code></pre></div><p>Y con esto ya tenemos lista la partición de arranque, ahora, procedemos a preparar las demás particiones y configurar el esquema LVM-LUKS.</p>
+<h2 id="cifrando-arch-en-nuestra-máquina-">
+  Cifrando Arch en nuestra máquina 🔒
+  <a class="heading-link" href="#cifrando-arch-en-nuestra-m%c3%a1quina-">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<p>A partir de aquí vamos a configurar <code>/dev/sda2</code> para usar el esquema LVM-LUKS.</p>
+<p>Y antes de empezar conviene comprender, y bien, ¿por qué usar el esquema <code>LVM-LUKS</code>?</p>
+<p>En palabras simples, LVM (Logical Volume Manager) nos ayuda a crear particiones virtuales mientras que LUKS (Linux Unified Key Setup) nos ayuda a cifrar la particion.</p>
+<p>Así quedaría todo el disco una vez instalado Arch:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">+-----------------------------------------------------------------------+ +----------------+
+| Volumen lógico 1      | Volumen lógico 2      | Volumen lógico 3      | | Boot partition |
+|                       |                       |                       | |                |
+| [SWAP]                | /                     | /home                 | | /boot          |
+|                       |                       |                       | |                |
+| /dev/MyVolGroup/swap  | /dev/MyVolGroup/root  | /dev/MyVolGroup/home  | |                |
+|_ _ _ _ _ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _| |                |
+|                                                                       | |                |
+|                         LUKS2 encrypted partition                     | |                |
+|                           /dev/sda2                                   | | /dev/sda1      |
++-----------------------------------------------------------------------+ +----------------+
+</code></pre></div><p>(diagrama tomado de la <a href="https://wiki.archlinux.org/index.php/Dm-crypt/Encrypting_an_entire_system#LVM_on_LUKS">wiki</a>).</p>
+<p>Ahora si, continuamos con la guía.</p>
+<h2 id="configurando-el-cifrado-con-cryptsetuphttpswikiarchlinuxorgindexphpdm-crypt_espac3b1oldevice_encryption_espac3b1olutilizacic3b3n_de_cryptsetup">
+  Configurando el cifrado con <a href="https://wiki.archlinux.org/index.php/Dm-crypt_(Espa%C3%B1ol)/Device_encryption_(Espa%C3%B1ol)#Utilizaci%C3%B3n_de_cryptsetup">cryptsetup</a>
+  <a class="heading-link" href="#configurando-el-cifrado-con-cryptsetuphttpswikiarchlinuxorgindexphpdm-crypt_espac3b1oldevice_encryption_espac3b1olutilizacic3b3n_de_cryptsetup">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<p>Para poder cifrar la partición <code>/dev/sda2</code> necesitamos usar <code>cryptsetupt</code>, que nos ayuda a crear, acceder y administrar unidades de almacenamiento cifrados.</p>
+<p>Para este caso simplemente ejecutamos:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># cryptsetup luksFormat /dev/sda2
+</code></pre></div><p>Ingresamos la constraseña para cifrar la partición:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">Enter passphrase for /dev/sda2:
+</code></pre></div><p>Y listo! cryptsetup cifro nuestra particion.</p>
+<h2 id="desbloqueamos-la-particion-cifrada-y-creamos-root-home-y-swap">
+  Desbloqueamos la particion cifrada y creamos root, home y swap
+  <a class="heading-link" href="#desbloqueamos-la-particion-cifrada-y-creamos-root-home-y-swap">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<p>Para desbloquear la partición usamos cryptsetup:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># cryptsetup open --type luks /dev/sda2 lvm 
+</code></pre></div><h2 id="creamos-los-respectivos-grupos">
+  Creamos los respectivos grupos
+  <a class="heading-link" href="#creamos-los-respectivos-grupos">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<p>Con pvcreate creamos un volumen físico necesario para usar junto con LVM:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># pvcreate /dev/mapper/lvm
+</code></pre></div><p>Ahora creamos el grupo de volumen bajo el mismo volumen físico que acabamos de crear:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># vgcreate volume /dev/mapper/lvm
+</code></pre></div><p>Con lvcreate creamos un volumen lógico dentro de un grupo de volumen existente.
+Para este caso asignamos 2G para swap el tamaño de swap es proporcional a la memoria de cada máquina, puede ser más o puede ser menos, siguiendo la buena práctica se asigno 2G por que la máquina tiene 4G.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># lvcreate -L2G volume -n swap
+</code></pre></div><p>Creamos el volumen lógico para root:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># lvcreate -L50G volume -n root
+</code></pre></div><p>Y dejamos el espacio que queda libre para home:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># lvcreate -l 100%FREE volume -n home
+</code></pre></div><p>Una vez creado el grupo y los volumenes lógicos, nos queda darle el formato a cada volumen lógico.</p>
+<h2 id="dandole-el-formato-a-los-volumenes-lógicos">
+  Dandole el formato a los volumenes lógicos
+  <a class="heading-link" href="#dandole-el-formato-a-los-volumenes-l%c3%b3gicos">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<p>Para <code>root</code> y <code>home</code> usaremos <code>ext4</code>:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># mkfs.ext4 /dev/mapper/volume-root
+</code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># mkfs.ext4 /dev/mapper/volume-home
+</code></pre></div><p>Y para swap usaremos mkswap:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># mkswap /dev/mapper/volume-swap 
+</code></pre></div><h3 id="creamos-los-directorios-home-y-boot-sobre-mnt">
+  Creamos los directorios home y boot sobre /mnt
+  <a class="heading-link" href="#creamos-los-directorios-home-y-boot-sobre-mnt">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># mkdir /mnt/home
+# mkdir /mnt/boot
+</code></pre></div><h3 id="montamos-las-particiones">
+  Montamos las particiones
+  <a class="heading-link" href="#montamos-las-particiones">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># mount /dev/mapper/volume-root /mnt
+# mount /dev/sda1 /mnt/boot
+# mount /dev/mapper/volume-home /mnt/home
+</code></pre></div><h3 id="activamos-swap">
+  Activamos swap:
+  <a class="heading-link" href="#activamos-swap">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># swapon /dev/mapper/volume-swap
+</code></pre></div><h2 id="instalación-base">
+  Instalación base
+  <a class="heading-link" href="#instalaci%c3%b3n-base">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<p>Una vez montadas las particiones procedemos a instalar los paquetes necesarios para tener un sistema funcional en nuestra máquina:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># pacstrap /mnt base base-devel linux linux-firmware vim networkmanager mkinitcpio lvm2 cryptsetup
+</code></pre></div><p>⚡<strong>Consejo</strong>: recomiendo <a href="https://wiki.archlinux.org/index.php/Installation_guide#Installation">leer esta pagina de la wiki</a> para conocer más a detalle sobre qué paquetes se pueden instalar para cada necesidad, esto se debe a que se han simplificado los paquetes que se incluyen en el paquete <code>base</code>.</p>
+<p>Para este caso decidí instalar <code>linux linux-firmware vim networkmanager mkinitcpio lvm2 cryptsetup</code>, paquetes necesarios para nuestra instalación cifrada.</p>
+<h2 id="generamos-el-archivo-fstab">
+  Generamos el archivo fstab
+  <a class="heading-link" href="#generamos-el-archivo-fstab">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<p>¿De qué nos sirve el archivo fstab?
+fstab es usado para definir cómo las particiones, distintas unidades de almacenamiento o sistemas de archivos remotos deben ser montados e integrados en el sistema.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># genfstab -U /mnt &gt;&gt; /mnt/etc/fstab
+</code></pre></div><h2 id="movemos-root-al-nuevo-sistema-instalado">
+  Movemos root al nuevo sistema instalado
+  <a class="heading-link" href="#movemos-root-al-nuevo-sistema-instalado">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># arch-chroot /mnt
+</code></pre></div><h2 id="configuración-inicial">
+  Configuración inicial
+  <a class="heading-link" href="#configuraci%c3%b3n-inicial">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<p>En esta parte de la guía ya tenemos un sistema mínimo funcional, ahora solo nos queda terminar de configurar e instalar más paquetes necesarios.</p>
+<h2 id="configuramos-la-zona-horaria">
+  Configuramos la zona horaria
+  <a class="heading-link" href="#configuramos-la-zona-horaria">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># ln -s /usr/share/zoneinfo/America/Mexico_city /etc/localtime
+# hwclock --systohc --utc
+</code></pre></div><h2 id="lenguaje">
+  Lenguaje
+  <a class="heading-link" href="#lenguaje">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<p>Para cambiar nuestro sistema de idioma (una vez que se instale) lo hacemo editando el archivo /etc/locale.gen y simplemente descomentamos el idioma que nos gustaría usar con Arch.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># vim /etc/locale.gen
+
+es_MX.UTF-8 UTF-8
+</code></pre></div><p>Habiendo configurado el idioma deseado proceedemos a generar los locales para nuestra instalación:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># locale-gen 
+</code></pre></div><p>Guardamos nuestra configuración en <code>locale.conf</code>:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># locale &gt; /etc/locale.conf
+</code></pre></div><h2 id="configuración-de-red">
+  Configuración de red
+  <a class="heading-link" href="#configuraci%c3%b3n-de-red">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<p>Hostname</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># vim /etc/hostname
+</code></pre></div><p>Agregar entradas a los hosts</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># vim /etc/hosts
+127.0.0.1	  localhost
+::1		      localhost
+127.0.1.1	  myhostname.localdomain	  myhostname
+</code></pre></div><h2 id="importante-">
+  IMPORTANTE ⚠️
+  <a class="heading-link" href="#importante-">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<p>Al estar configurando nuestra instalación bajo el esquema de cifrado LVM-LUKS tenemos que ordenar los HOOKS (scripts que se ejecutan el disco RAM inicial) de esta manera:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># vim /etc/mkinitcpio.conf 
+
+HOOKS=(base udev autodetect modconf block keyboard encrypt lvm2 filesystems fsck)
+</code></pre></div><p>¿Qué podría suceder si se ignora el orden de esto?
+Arch no podría iniciar de manera correcta, nos bloquearía el uso del teclado y no podremos ingresar la contraseña para desbloquear nuestra partición.</p>
+<h2 id="recreamos-initramfs">
+  Recreamos initramfs
+  <a class="heading-link" href="#recreamos-initramfs">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<p>Para nuestra instalación cifrada es necesario recrear el initramfs (un esquema necesario para cargar un sistema de archivos temporal en la memoria, que se usa en el arranque de nuestro sistema Linux)</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># mkinitcpio -P
+</code></pre></div><h2 id="establecemos-la-constraseña-a-root">
+  Establecemos la constraseña a root
+  <a class="heading-link" href="#establecemos-la-constrase%c3%b1a-a-root">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># passwd 
+</code></pre></div><h2 id="instalamos-el-gestor-de-arranque-systemd-boot">
+  Instalamos el gestor de arranque (systemd-boot)
+  <a class="heading-link" href="#instalamos-el-gestor-de-arranque-systemd-boot">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">bootctl --path=/boot install
+</code></pre></div><p>¿Por qué instalamos systemd-boot y no GRUB?
+Por que systemd-boot esta pensado para el modo UEFI.</p>
+<h2 id="configuramos-los-cargadores-de-arranque-boot-loaders">
+  Configuramos los cargadores de arranque (boot loaders)
+  <a class="heading-link" href="#configuramos-los-cargadores-de-arranque-boot-loaders">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<p>En este archivo definimos qué sistema nos gustaría iniciar:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># vim /boot/loader/loader.conf
+
+default arch 
+timeout 3 
+editor 0
+</code></pre></div><p>En este otro archivo indicamos el título de nuestra entrada (Arch Linux), el kernel y en las optiones indicamos la partición cifrada <code>root</code>:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># vim /boot/loader/entries/arch.conf
+
+title Arch Linux
+linux /vmlinuz-linux
+initrd /initramfs-linux.img
+options cryptdevice=UUID=86a872ee-b133-4e13-8283-d99024361d79:volume root=/dev/mapper/volume-root quiet rw
+</code></pre></div><p>⚡<strong>Consejo</strong>: Para obtener el UUID del cryptdevice dentro de <code>vim</code> con este comando:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">:read ! blkid /dev/sda2 
+</code></pre></div><h2 id="salimos-de-arch-chroot-desmontamos-las-particiones-y-reiniciamos">
+  Salimos de arch-chroot, desmontamos las particiones y reiniciamos
+  <a class="heading-link" href="#salimos-de-arch-chroot-desmontamos-las-particiones-y-reiniciamos">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<p><code>Ctrl+D</code></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># umount -R /mnt 
+# reboot
+</code></pre></div><p>A este punto ya tenemos un sistema base funcional en nuestra máquina (es momento de desconectar la USB), ya solo nos quedan algunos detalles por configurar.</p>
+<h2 id="personalización">
+  Personalización
+  <a class="heading-link" href="#personalizaci%c3%b3n">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<p>Ahora procedemos a personalizar nuestra instalación de Arch.</p>
+<p>Primero iniciamos sesión como root y agregamos nuestra cuenta de usario:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># useradd -m -G $tu_nombre_de_usuario 
+# passwd $tu_nombre_de_usuario
+</code></pre></div><p>Ahora, instalamos sudo:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># sudo pacman -S sudo
+</code></pre></div><p>Activamos sudo para todos los usuarios:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># vim /etc/sudoers
+%wheel ALL=(ALL) ALL
+</code></pre></div><p>Y listo! ya con esto ya podemos iniciar sesión como usario y usar <code>sudo</code>.</p>
+<h2 id="configurando-pacman">
+  Configurando Pacman
+  <a class="heading-link" href="#configurando-pacman">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<p>Para configurar Pacman es necesario editar el archivo que se encuentra en <code>/etc/pacman.conf</code>.</p>
+<p>¿Qué podemos configurar en ese archivo?</p>
+<ul>
+<li>Directorios para root, la base de datos de pacman, caché, logs, gpg</li>
+<li>Cambiar el modo en que pacman nos muestra algunas opciones como el tamaño total de la descarga de paquetes, usar el log, etc.</li>
+<li>Agregar/Quitar repositorios</li>
+</ul>
+<p>Agregamos este huevo de pascua que tiene <code>pacman</code>! cuando uses pacman vas a notar de que se trata
+;)</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># vim /etc/pacman.conf
+
+ILoveCandy
+</code></pre></div><h2 id="actualizamos-y-reiniciamos">
+  Actualizamos y reiniciamos
+  <a class="heading-link" href="#actualizamos-y-reiniciamos">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># sudo pacman -Syu &amp;&amp; reboot
+</code></pre></div><h2 id="iniciando-sesión-como-usario-regular">
+  Iniciando sesión como usario regular
+  <a class="heading-link" href="#iniciando-sesi%c3%b3n-como-usario-regular">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<p>Una vez que iniciamos sesión como usuario regular activamos el llavero de pacman:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">$ sudo pacman-key init
+</code></pre></div><p>Y finalmente tienes Arch Linux instalado en tu máquina!</p>
+<h2 id="haz-que-arch-funcione-como-a-ti-te-guste">
+  Haz que Arch funcione como a ti te guste
+  <a class="heading-link" href="#haz-que-arch-funcione-como-a-ti-te-guste">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<p>Ahora solo queda personalizarlo exactamente como a ti te gustaría usarlo, podria ser instalar un <a href="https://wiki.archlinux.org/index.php/Desktop_environment_(Espa%C3%B1ol)">entorno gráfico</a>, un <a href="https://wiki.archlinux.org/index.php/Window_manager_(Espa%C3%B1ol)">administrador de ventanas</a> o incluso dejarlo así como está. Esa es la parte más genial de Arch Linux, tú eliges como usarlo :D</p>
+<p>Haz llegado al final de esta guía, espero que te haya servido para poder instalar Arch Linux en tu máquina!</p>
+<p><a href="https://twitter.com/gccstr?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @gccstr</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    ©
+    
+    2022
+     Jesús Castro 
+    ·
+    Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+      
+      <script src="/js/coder.min.39a51230dce2ac866c049b52573e38bf60666af4bc63c1bdf203b9b2d95b1cd6.js" integrity="sha256-OaUSMNzirIZsBJtSVz44v2BmavS8Y8G98gO5stlbHNY="></script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+  </body>
+
+</html>

@@ -1,64 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on Jesús Castro</title>
+    <title>Tags on jcstr</title>
     <link>https://jcstr.dev/tags/</link>
-    <description>Recent content in Tags on Jesús Castro</description>
+    <description>Recent content in Tags on jcstr</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    
-	<atom:link href="https://jcstr.dev/tags/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    
-    <item>
-      <title>Bitcoin 101</title>
-      <link>https://jcstr.dev/bitcoin-101/</link>
-      <pubDate>Thu, 15 Jul 2021 17:25:06 -0500</pubDate>
-      
-      <guid>https://jcstr.dev/bitcoin-101/</guid>
-      <description>El propósito de este post es explicar de manera simple los conceptos iniciales detrás de Bitcoin.
-¿Qué es Bitcoin?  Bitcoin es una moneda digital descentralizada, sin un banco central ni un administrador único, que se puede enviar de un usuario a otro en la red bitcoin peer-to-peer sin necesidad de intermediarios.
- Esta es la primer definición que te encuentras en los resultados de búsqueda. Sólo que buscamos ir más allá de definiciones.</description>
-    </item>
-    
-    
-    
-    <item>
-      <title>Fracasado</title>
-      <link>https://jcstr.dev/fracasado/</link>
-      <pubDate>Fri, 26 Mar 2021 18:51:30 -0600</pubDate>
-      
-      <guid>https://jcstr.dev/fracasado/</guid>
-      <description>&amp;ldquo;Pienso que es necesario educar a las nuevas generaciones el valor de la derrota. En manejarse en ella. En la humanidad que de ella emerge. En construir una identidad capaz de advertir una comunidad de destino, en la que se pueda fracasar y volver a empezar sin que el valor y la dignidad se vean afectados. En no ser un trepador social, en no pasar sobre el cuerpo de los otros para llegar primero.</description>
-    </item>
-    
-    
-    
-    <item>
-      <title>End Notes on 2020</title>
-      <link>https://jcstr.dev/end-notes-on-2020/</link>
-      <pubDate>Wed, 30 Dec 2020 17:51:38 -0600</pubDate>
-      
-      <guid>https://jcstr.dev/end-notes-on-2020/</guid>
-      <description>It&amp;rsquo;s not a big surprise that this year came with difficulties of all kinds, but still came with opportunities as well.
-This year I&amp;rsquo;ve had the opportunity to finish college, graduate and get a job, all from the comfort of home. Personally this is one of the reason I’ve choose this career, it can give all the opportunities you want, but you have to focus and do things in order to go somewhere.</description>
-    </item>
-    
-    
-    
-    <item>
-      <title>Así instalo Arch Linux</title>
-      <link>https://jcstr.dev/as%C3%AD-instalo-arch-linux/</link>
-      <pubDate>Tue, 27 Oct 2020 21:31:37 -0600</pubDate>
-      
-      <guid>https://jcstr.dev/as%C3%AD-instalo-arch-linux/</guid>
-      <description>Te doy la bienvenida a mi primer post! el cual dedicare a la comunidad Mexicana de Arch Linux.
-Uno de los principales obstáculos que se encuentran en algunas comunidades de Software Libre y de Código Abierto, particularmente en México, es el no tener el dominio del idioma inglés, pero no hay ningún problema, para ello decidí escribir esta guía al español para poder ayudar a quienes tienen el interés de instalar Arch Linux y así poder usar el mismo día.</description>
-    </item>
-    
-    
-    
-    
+    <language>en</language><atom:link href="https://jcstr.dev/tags/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
