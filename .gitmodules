@@ -2,3 +2,6 @@
 	path = public
 	url = git@github.com:jcstr/jcstr.github.io.git
 	branch = gh-pages
+[submodule "themes/hugo-coder"]
+	path = themes/hugo-coder
+	url = https://github.com/luizdepra/hugo-coder.git
