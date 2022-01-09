@@ -5,27 +5,11 @@ draft: false
 
 ## Sup! 👋
 
-My name is **Jesús Castro**, currently living in Jalisco, México 🇲🇽 but working remotely thanks to the Internet. 🌎
+My name is **Jesús Castro**, currently living in Jalisco, México but working remotely thanks to the Internet.
 
 I'm a Software Engineer and my interests are **Web Development**, **High-scalable Infrastructure**, **Linux** and **Open Source**.
 
-![Nada Es Lejos](https://i.imgur.com/w8GIZvr.jpg)
-## Contact 📇
-You can find me on: 
-* [GitHub](https://github.com/jcstr)  
-* [Twitter](https://twitter.com/gccstr) 
-* [LinkedIn](https://linkedin.com/in/jcstr) 
-* [Polywork](https://poly.work/jcstr)
-* [Telegram](https://t.me/gccstr)
-
-Also, you can check my [Software Guru's page](https://sg.com.mx/buzz/autores/jesus-castro).
-
-✉️ [jesuscastro@pm.me](mailto:jesuscastro@pm.me)
-
-🔐 [PGP](https://keys.openpgp.org/vks/v1/by-fingerprint/8BFBEBA5A6F817E9CE65708E9CD31EA7F1CAEB08) Fingerprint:
-```
-8BFB EBA5 A6F8 17E9 CE65 708E 9CD3 1EA7 F1CA EB08
-```
+![Nada Es Lejos](https://i.imgur.com/RejzFdX.jpg)
 
 ## Projects 👨🏻‍💻
 ### My own projects and contributions
@@ -48,14 +32,17 @@ Also, you can check my [Software Guru's page](https://sg.com.mx/buzz/autores/jes
 * **[Linux install fest](https://camo.githubusercontent.com/69c9e18cad2f0dac0a4129ebcb770106195da9a7ecc0e823a419e89ffdff1c21/68747470733a2f2f692e696d6775722e636f6d2f4275414a71786f2e6a7067)** - Apr 12, 2019 @ [Tecnológico Mario Molina](http://zapopan.tecmm.edu.mx/).
 * **[Arch Linux, Cómo contribuir](https://www.meetup.com/es/Open-SOurce-Mexico-OSOM/events/268481089/)** - Feb 12, 2020 @ [Open Source México](https://twitter.com/amigososom).
 * **[Arch Linux contribution workshop](https://www.youtube.com/watch?v=a4KpbdGiwtk)** - Oct 22, 2020 @ [CCOSS](https://ccoss.org) alongside [Andrea Gómez](https://github.com/da-edra) and [Santiago Torres](https://badhomb.re).
-* **[Linux Para Desarrolladores](https://twitter.com/gccstr/status/1435385827089993728?s=20)** - Oct 22, 2020 @ [Hackademy - Future Developers Program](https://futuredevelopers.lat)
+* **[Linux Para Desarrolladores](https://twitter.com/gccstr/status/1435385827089993728?s=20)** - Oct 7, 2020 @ [Hackademy - Future Developers Program](https://futuredevelopers.lat)
 * **[Community Nights - Tech Talks](https://www.youtube.com/watch?v=lOC3KNHWW-Q)** - Sep 9, 2021 @ [Tomato Valley](https://tomatovalley.net/).
-* **[Tech Experts 4 U - Tech Talks](https://www.facebook.com/events/1154088928433350/)** - Sep 9, 2021 @ [Biblioteca Benjamín Franklin](https://www.facebook.com/BibliotecaBenjaminFranklin/).
+* **[Tech Experts 4 U - Tech Talks](https://www.facebook.com/events/1154088928433350/)** - Sep 14, 2021 @ [Biblioteca Benjamín Franklin](https://www.facebook.com/BibliotecaBenjaminFranklin/).
+* **[Una introducción al Open Source](https://www.youtube.com/watch?v=48pMOpXRc4s)** - Dic 7, 2021 @ [PosaDev](https://twitter.com/gdldevcomms).
 
 
 
 ## Donate ❤️
-If the work I've done on Open Source have helped you on some way, consider to make a donation through **GitHub Sponsors**:
+If the work I've done on Open Source have helped you on some way, consider to make a donation through these options: 
+
+* **GitHub Sponsors**:
 <iframe src="https://github.com/sponsors/jcstr/button" title="Sponsor jcstr" height="35" width="116" style="border: 0;"></iframe>
 
 ## Authoring ✍️

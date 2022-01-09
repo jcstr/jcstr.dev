@@ -4,18 +4,18 @@ date: 2020-10-27T21:31:37-06:00
 draft: false
 ---
 
-Te doy la bienvenida a mi primer post! el cual dedicare a la [comunidad Mexicana de Arch Linux](https://archlinux.mx).
+¡Te doy la bienvenida a mi primer post! el cual dedicare a la [comunidad Mexicana de Arch Linux](https://twitter.com/archlinuxmx).
 
 Uno de los principales obstáculos que se encuentran en algunas comunidades de Software Libre y de Código Abierto, particularmente en México, es el no tener el dominio del idioma inglés, pero no hay ningún problema, para ello decidí escribir esta guía al español para poder ayudar a quienes tienen el interés de instalar **[Arch Linux](https://archlinux.org)** y así poder usar el mismo día.
 
-## ¿Para quién está dirigida está guía?
+## ¿Para quién está dirigida esta guía?
 * Para quienes ~~son expertos~~ tienen la actitud de hacer las cosas por sí mismos.
-* Está guía contiene todos los pasos enfocados para una instalación directa en la máquina.
+* Está guía contiene todos los pasos enfocados para una instalación en la máquina.
 
 ## ¿Qué obtendré al finalizar esta guía?
 * Una instalación de Arch Linux _cifrada_ bajo el esquema [LVM-LUKS](https://wiki.archlinux.org/index.php/Dm-crypt_(Espa%C3%B1ol)/Encrypting_an_entire_system_(Espa%C3%B1ol)#LVM_sobre_LUKS).
 
-(Osea, un sistema Linux con el disco cifrado {... para más seguridad :lock:}).
+(Osea, un sistema basado en **Linux** con el disco cifrado {... para más seguridad :lock:}).
 
 :zap:**Consejo**: Antes de instalar Arch Linux en tu máquina recomiendo que aprendas a familiarizarte con Arch desde una máquina virtual, ya sea con [Docker](https://picodotdev.github.io/blog-bitix/2014/11/como-instalar-y-guia-de-inicio-basica-de-docker/) o [Vagrant](https://fortinux.gitbooks.io/humble_tips/content/capitulo_1_usando_aplicaciones_en_linux/tutorial_instalar_vagrant_para_usar_ambientes_virtuales_en_gnulinux.html).
 
